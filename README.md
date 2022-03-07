@@ -4,12 +4,15 @@
 
 # Red Team Test
   - Network Topology
-  - Description of Target
+  - Description of Targets
+  - Exposed Services
   - Critical Vulnerabilities
+  - Exploitation
 ---------------------------------------------------------------------------------------------------------------------------------
 # Network Topology
 ![Finalprojecttopo](https://user-images.githubusercontent.com/89936268/156804939-b293e54f-26df-479f-9e38-0530780ad0d9.png)
 
+This scan identifies the services below as potential points of entry:
 
 ![nmapScreenshot_2022-02-26_09-13-43](https://user-images.githubusercontent.com/89936268/156850973-78c92f04-acba-44d5-8368-8682d5c23a26.png)
 
@@ -19,7 +22,7 @@
 # Critical Vulnerabilities: Target 1
 ------------------------------------------------------------------------------------------------------------------------------------
 
-# Assessment uncovered these critical vulnerabilities in Tagrget 1
+# The following vulnerabilities were identified on each target:
 
 
 |    Vulnerability     |     Description         |        Impact                  |
@@ -28,6 +31,10 @@
 | MySQL DB breach      | Unauthorized access to the database using unprotected credentials stored in wp-config.php. | Bad actors can easily access database using credentials that are stored in unprotected files. |
 | WordPress reveals usernames | Using WordPress scan, MIchael and Steven's user names were revealed | Ability to SSH into Target 1 and also access the MySQL database. |
 | Privilege escalation through Python | Steven has sudo privileges when executing "Python" allowing him to escalate to root privileges. | Bad actors can gain access to the root shell if they are able to access Steven's account. |
+| port 22 openssh 7.6p1 Debian 5+deb8u4 | https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=openssh |
+| port 80 running apache httpd 2.4.10 (Debian) | https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=Apache%20HTTP%20server |
+| Port 111 running rpcbind 2-4 ( RPC #100000) | https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=rpc | 
+| Port 139 and 445 running netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP) | https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=samba+smbd+3.X | 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Reconnaissance of open port 22 SSH and weak password
@@ -91,3 +98,42 @@
 ![stevenpythonScreenshot_2022-03-04_13-01-35](https://user-images.githubusercontent.com/89936268/156853384-d2bd9c4c-60f4-4a03-ba7e-a14fb964299b.png)
 
 ![Screen Shot 2022-03-04 at 5 02 01 PM](https://user-images.githubusercontent.com/89936268/156853743-afde40ce-031d-4ac9-84ba-e6b02a22bf16.png)
+
+
+# Blue Team Operations
+  - Monitoring Targets
+  - Patterns of Traffic & Behavior
+
+# Alert 1
+  - Metric: Excessive HTTP Errors
+  - Threshold: When the http response code is over 500 for more than 5 mintues
+  - Vulnerability Mitigated: Availability
+  - Reliability: High
+
+![HTTPrequest](https://user-images.githubusercontent.com/89936268/157099743-5ae62b30-71b4-4a46-84ca-43bb74aaa050.png)
+
+  - Metric: HTTP Request Size
+  - Threshold: When total bytes of http requests are above 3500 for last minute
+  - Vulnerability Mitigated: DDOS attack
+  - Reliability: Medium
+
+![HTTPerrors](https://user-images.githubusercontent.com/89936268/157100189-873485bc-819e-4e13-92a1-9a92427c647e.png)
+
+# Alert 3
+  - Metric: CPU Usage Monitor
+  - Threshold: CPU process total percentage is above 0.5 for last 5 mintues
+  - Vulnerability Mitigated: DDOS attack
+  - Reliability: Low
+
+![CPUusage](https://user-images.githubusercontent.com/89936268/157100284-d106304b-10ed-4f37-88f4-6bf3ed3346bc.png)
+
+# Network Forensic Analysis Report
+- Time Thieves
+  -frank-n-ted.com
+- 10.6.12.12
+- GET /files/june11.dll HTTP/1.1
+
+![malwarename](https://user-images.githubusercontent.com/89936268/157133908-e7a155c4-1b2a-4d73-aae5-3847e86232db.png)
+![exportmalware](https://user-images.githubusercontent.com/89936268/157133955-bd6188f0-893a-4f8c-a98f-980369af99db.png)
+![virustotal](https://user-images.githubusercontent.com/89936268/157134387-c28ecdd7-e21c-4abd-8022-a168f417414c.png)
+- Trojan
