@@ -86,7 +86,7 @@ This scan identifies the services below as potential points of entry:
 # Privilege Escalation via Python
 
 - I cracked Steven's password using John the ripper to access his account.
-- - A bad actor in Steven's account can learn that they can execute "Python" with sudo privileges, the execute this command to gain access to the root shell:
+- A bad actor in Steven's account can learn that they can execute "Python" with sudo privileges, the execute this command to gain access to the root shell:
     **sudo python -c 'import pty;pty.spawn("/bin/bash")'**
 - The exploit acheived root access and allowed to see flag 4 again. 
 
