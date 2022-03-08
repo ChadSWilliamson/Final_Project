@@ -133,7 +133,14 @@ This scan identifies the services below as potential points of entry:
 - 10.6.12.12
 - GET /files/june11.dll HTTP/1.1
 
+**Follow the TCP stream**
 ![malwarename](https://user-images.githubusercontent.com/89936268/157133908-e7a155c4-1b2a-4d73-aae5-3847e86232db.png)
+
+**Finding the file in wireshark to export it to desktop**
 ![exportmalware](https://user-images.githubusercontent.com/89936268/157133955-bd6188f0-893a-4f8c-a98f-980369af99db.png)
+
+**june11.dll file uploaded to VirusTotal.com for analysis**
 ![virustotal](https://user-images.githubusercontent.com/89936268/157134387-c28ecdd7-e21c-4abd-8022-a168f417414c.png)
+
+**File classification in VirusTotal.com**
 - Trojan
