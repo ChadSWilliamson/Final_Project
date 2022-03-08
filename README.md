@@ -12,7 +12,7 @@
 # Network Topology
 ![Finalprojecttopo](https://user-images.githubusercontent.com/89936268/156804939-b293e54f-26df-479f-9e38-0530780ad0d9.png)
 
-This scan identifies the services below as potential points of entry:
+**This scan identifies the services below as potential points of entry:**
 
 ![nmapScreenshot_2022-02-26_09-13-43](https://user-images.githubusercontent.com/89936268/156850973-78c92f04-acba-44d5-8368-8682d5c23a26.png)
 
@@ -76,6 +76,7 @@ This scan identifies the services below as potential points of entry:
 ![michael stevenhashScreenshot_2022-02-28_15-02-40](https://user-images.githubusercontent.com/89936268/156852161-68097d4e-22ad-4588-b762-89f3e272d88c.png)
 
 **Where flags 3,4 are located**
+
 ![whereflag3,4Screenshot_2022-03-01_17-27-45](https://user-images.githubusercontent.com/89936268/156853890-79b0a7d3-8fd1-47e9-ae7e-1eb0faf739de.png)
 
 **Flags 3, 4**
@@ -90,11 +91,13 @@ This scan identifies the services below as potential points of entry:
     **sudo python -c 'import pty;pty.spawn("/bin/bash")'**
 - The exploit acheived root access and allowed to see flag 4 again. 
 
+**john-the-ripper to crack the hashes found in mysql**
 ![johnripperScreenshot_2022-03-01_09-58-14](https://user-images.githubusercontent.com/89936268/156853290-ae454418-bfd4-45a6-9996-b3d0644efc99.png)
 
+**john cracked steven's password**
 <img width="947" alt="Screen Shot 2022-03-04 at 3 12 07 PM" src="https://user-images.githubusercontent.com/89936268/156853313-c0a84b9f-b63f-463d-ad79-c4bd3baf55d2.png">
 
-
+**python script to gain a reverse shell into Steven's account to escalate to root priviledges**
 ![stevenpythonScreenshot_2022-03-04_13-01-35](https://user-images.githubusercontent.com/89936268/156853384-d2bd9c4c-60f4-4a03-ba7e-a14fb964299b.png)
 
 ![Screen Shot 2022-03-04 at 5 02 01 PM](https://user-images.githubusercontent.com/89936268/156853743-afde40ce-031d-4ac9-84ba-e6b02a22bf16.png)
